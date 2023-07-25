@@ -1,6 +1,7 @@
-import { getPage } from "../e2e-playwrite/playwright-utils";
+import { getPage } from "../playwright-utils";
+import { Page } from "@playwright/test";
 
-export class AngularTemplatePage {
+export class AngularTemplatePage extends Page {
   navigateTo() {
     return getPage().goto('/');
   }
