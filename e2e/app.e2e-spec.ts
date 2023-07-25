@@ -1,14 +1,18 @@
 import { AngularTemplatePage } from './app.po';
+import { expect } from "@playwright/test";
+import { test, setPage } from "../playwright-utils";
 
-describe('angular-template App', () => {
+test.describe('angular-template App', () => {
   let page: AngularTemplatePage;
 
-  beforeEach(() => {
+  test.beforeEach(async ({page}) => {
+    setPage(page);
     page = new AngularTemplatePage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+  test('should display welcome message', async ({page}) => {
+    setPage(page);
+    await page.navigateTo();
+    expect(await page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

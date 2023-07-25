@@ -1,11 +1,11 @@
-import { browser, by, element } from 'protractor';
+import { getPage } from "../e2e-playwrite/playwright-utils";
 
 export class AngularTemplatePage {
   navigateTo() {
-    return browser.get('/');
+    return getPage().goto('/');
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return getPage().locator('app-root h1').innerText();
   }
 }
